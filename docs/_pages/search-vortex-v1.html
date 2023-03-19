@@ -3,35 +3,19 @@ title: Search Vortex
 permalink: /search/v1/vortex/
 ---
 
-<style>
-#search-demo-container {
-  max-width: 40em;
-  padding: 1em;
-  margin: 1em auto;
-  border: 1px solid lightgrey;
-}
-#search-input {
-  display: inline-block;
-  padding: .5em;
-  width: 100%;
-  font-size: 0.8em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-</style>
-
 <script>
 // https://wonderpaper.github.io/tools/search/vortex
 // {{ site.baseurl }}
 // {{ site.baseurl }}/search/vortex/searchVortex.json',
+/* part of W3.JS 1.04 April 2019 by w3schools.com */
+"use strict";var w3={};w3.filterHTML=function(id,sel,filter){var a,b,c,i,ii,iii,hit;  a=w3.getElements(id);for(i=0;i<a.length;i++){b=a[i].querySelectorAll(sel);for(ii=0;ii<b.length;ii++){hit=0;if(b[ii].innerText.toUpperCase().indexOf(filter.toUpperCase())>-1){hit=1;}c=b[ii].getElementsByTagName("*");for (iii=0;iii<c.length;iii++){if(c[iii].innerText.toUpperCase().indexOf(filter.toUpperCase())>-1){hit=1;}}if(hit==1){b[ii].style.display="";}else{b[ii].style.display="none";}}}};w3.getElements=function(id){if(typeof id=="object"){return [id];}else{return document.querySelectorAll(id);}};
 </script>
+<!--
 <script src="https://www.w3schools.com/lib/w3.js"></script>
+-->
 <h2>All _data/vortex.yml entries</h2>
 <p>Search for a Pokémon..</p>
-
 <input oninput="w3.filterHTML('#pkmn', 'li', this.value)" placeholder="Search for names..">
-
 <ul id="pkmn">
   {% for item in site.data.vortex %}
   <li>{{ item.id }} {{ item.name }}</li>
