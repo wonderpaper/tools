@@ -2,65 +2,49 @@
 title: Search Vortex
 permalink: /search/vortex/
 ---
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {%- include head.html -%}
+<style>
+#search-demo-container {
+max-width: 40em;
+padding: 1em;
+margin: 1em auto;
+border: 1px solid lightgrey;
+}
+#search-input {
+display: inline-block;
+padding: .5em;
+width: 100%;
+font-size: 0.8em;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+</style>
 
-  <body>
-    <style>
-      #search-demo-container {
-        max-width: 40em;
-        padding: 1em;
-        margin: 1em auto;
-        border: 1px solid lightgrey;
-      }
-      #search-input {
-        display: inline-block;
-        padding: .5em;
-        width: 100%;
-        font-size: 0.8em;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-    </style>
-    {%- include header.html -%}
+<div id="search-demo-container">
+<input type="search" id="search-input" placeholder="search...">
+<ul id="results-container"></ul>
+</div>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div id="search-demo-container">
-          <input type="search" id="search-input" placeholder="search...">
-          <ul id="results-container"></ul>
-        </div>
-        <div>
-          <p>All _data/vortex.yml entries</p>
-          <ul>
-            {% for item in site.data.vortex %}
-            <li>{{ item.id }} {{ item.name }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </main>
+<h2>All _data/vortex.yml entries</h2>
+<ul>
+{% for item in site.data.vortex %}
+<li>{{ item.id }} {{ item.name }}</li>
+{% endfor %}
+</ul>
 
-    {%- include footer.html -%}
-<!-- -->
-    <script>
-      window.simpleJekyllSearch = new SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
+<script>
+var sjs = SimpleJekyllSearch({
+searchInput: document.getElementById('search-input'),
+resultsContainer: document.getElementById('results-container'),
 
 // https://wonderpaper.github.io/tools/search/vortex
 // {{ site.baseurl }}
 
-        json: '{{ site.baseurl }}/search/vortex/searchVortex.json',
-        searchResultTemplate: '<li>{id} {name}</li>',
-        noResultsText: 'No results found',
-        limit: 10,
-        fuzzy: false,
-        exclude: ['Welcome']
-      })
-    </script> <!-- -->
-  </body>
-</html>
+json: '{{ site.baseurl }}/search/vortex/searchVortex.json',
+searchResultTemplate: '<li>{id} {name}</li>',
+noResultsText: 'No results found',
+limit: 10,
+fuzzy: false
+})
+</script>
