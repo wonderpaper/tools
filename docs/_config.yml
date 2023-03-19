@@ -1,4 +1,4 @@
-title: Your awesome title
+title: wonderpaper tools
 author:
   name: GitHub User
   email: your-email@domain.com
@@ -11,7 +11,7 @@ description: >
   results) and in your feed.xml site description.
 
 url: ""
-baseurl: "/minima-on-subfolder-setup"
+baseurl: "/tools"
 
 ### Build settings
 
