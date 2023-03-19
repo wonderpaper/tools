@@ -1,5 +1,6 @@
 ---
-title: path to exile
+title: Search Vortex
+permalink: /vortex/search/
 ---
 
 page test
@@ -8,7 +9,6 @@ page test
 :path
 ```
 
-1. :path = {{ :path }}
 
 2. page.path = {{ page.path }}
 
@@ -25,3 +25,11 @@ page test
 `page.title`
 
 5. page.title = {{ page.title }}
+
+
+data/vortex.yml
+  <ul>
+    {% for item in site.data.vortex %}
+    <li>{{ item.id }} {{ item.name }}</li>
+    {% endfor %}
+  </ul>
