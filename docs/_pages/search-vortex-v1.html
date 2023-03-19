@@ -1,0 +1,40 @@
+---
+title: Search Vortex
+permalink: /search/v1/vortex/
+---
+
+<style>
+#search-demo-container {
+  max-width: 40em;
+  padding: 1em;
+  margin: 1em auto;
+  border: 1px solid lightgrey;
+}
+#search-input {
+  display: inline-block;
+  padding: .5em;
+  width: 100%;
+  font-size: 0.8em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+// https://wonderpaper.github.io/tools/search/vortex
+// {{ site.baseurl }}
+// {{ site.baseurl }}/search/vortex/searchVortex.json',
+</script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<h2>All _data/vortex.yml entries</h2>
+<p>Search for a Pokémon..</p>
+
+<input oninput="w3.filterHTML('#pkmn', 'li', this.value)" placeholder="Search for names..">
+
+<ul id="pkmn">
+  {% for item in site.data.vortex %}
+  <li>{{ item.id }} {{ item.name }}</li>
+  {% endfor %}
+</ul>
+
