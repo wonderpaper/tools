@@ -1,35 +1,66 @@
 ---
 title: Search Vortex
-permalink: /vortex/search/
+permalink: /search/vortex/
 ---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-page test
+  {%- include head.html -%}
 
-```
-:path
-```
+  <body>
+    <style>
+      #search-demo-container {
+        max-width: 40em;
+        padding: 1em;
+        margin: 1em auto;
+        border: 1px solid lightgrey;
+      }
+      #search-input {
+        display: inline-block;
+        padding: .5em;
+        width: 100%;
+        font-size: 0.8em;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+    </style>
+    {%- include header.html -%}
 
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div id="search-demo-container">
+          <input type="search" id="search-input" placeholder="search...">
+          <ul id="results-container"></ul>
+        </div>
+        <div>
+          <p>All _data/vortex.yml entries</p>
+          <ul>
+            {% for item in site.data.vortex %}
+            <li>{{ item.id }} {{ item.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </main>
 
-2. page.path = {{ page.path }}
+    {%- include footer.html -%}
+<!-- -->
+    <script>
+      window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
 
-```
-:basename
-```
+// https://wonderpaper.github.io/tools/search/vortex
+// {{ site.baseurl }}
 
-3. :basename = {{ :basename }}
-
-4. page.basename = {{ page.basename }}
-
-5. site.basename = {{ site.basename }}
-
-`page.title`
-
-5. page.title = {{ page.title }}
-
-
-data/vortex.yml
-  <ul>
-    {% for item in site.data.vortex %}
-    <li>{{ item.id }} {{ item.name }}</li>
-    {% endfor %}
-  </ul>
+        json: '{{ site.baseurl }}/search/vortex/searchVortex.json',
+        searchResultTemplate: '<li>{id} {name}</li>',
+        noResultsText: 'No results found',
+        limit: 10,
+        fuzzy: false,
+        exclude: ['Welcome']
+      })
+    </script> <!-- -->
+  </body>
+</html>
