@@ -1,8 +1,8 @@
-[[ dashboard ]](https://github.com/dashboard)
+[this.docs](https://github.com/wonderpaper/tools/tree/main/docs)
 
-[magicdubi/search-test/././docs](https://github.com/magicdubi/search-test/tree/master/docs)
+---
 
+[[ gh dashboard ]](https://github.com/dashboard)  
 
-
-cloned from:  
-[minima-on-subfolder-setup](https://github.com/nxyslp/minima-on-subfolder-setup)  
+[magicdubi/search-test/././docs](https://github.com/magicdubi/search-test/tree/master/docs)  
+repo setup cloned from: [here](https://github.com/nxyslp/minima-on-subfolder-setup)  
